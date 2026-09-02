@@ -52,20 +52,14 @@
   <nav class="navbar" id="header">
     <div class="container">
       <a href="#" class="brand-logo">
-        <img src="images/logo.png" alt="Ministério Despertar" class="brand-logo-img">
+        <img src="images/logo.png" alt="Ministério Despertar" class="brand-logo-img" id="mainBrandLogo">
       </a>
 
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#hero" class="nav-menu-link active">Início</a></li>
-        <li><a href="#about" class="nav-menu-link">Sobre Nós</a></li>
-        <li><a href="#ministries" class="nav-menu-link">Ministérios <i class="fa-solid fa-chevron-down" style="font-size: 11px;"></i></a></li>
-        <li><a href="#sermons" class="nav-menu-link">Pregações</a></li>
-        <li><a href="#events" class="nav-menu-link">Eventos</a></li>
-        <li><a href="#give" class="nav-menu-link">Contribuição</a></li>
-        <li><a href="#footer" class="nav-menu-link">Contato</a></li>
+        <!-- Renderizado dinamicamente pelo JS -->
       </ul>
 
-      <a href="#visitModal" class="btn btn-accent js-plan-visit">
+      <a href="#visitModal" class="btn btn-accent js-plan-visit" id="navbarCtaBtn">
         Planeje sua Visita
       </a>
 
@@ -81,22 +75,22 @@
   <section class="hero-section" id="hero">
     <div class="container">
       <div class="hero-content">
-        <span class="eyebrow">BEM-VINDO À SUA CASA</span>
-        <h1 class="hero-h1">
-          AME A DEUS.<br>
-          AME AS PESSOAS.<br>
-          <span class="color-accent">FAÇA A DIFERENÇA.</span>
+        <span class="eyebrow" id="heroEyebrow">BEM-VINDO À SUA CASA</span>
+        <h1 class="hero-h1" id="heroH1">
+          <span id="heroH1Line1">AME A DEUS.</span><br>
+          <span id="heroH1Line2">AME AS PESSOAS.</span><br>
+          <span class="color-accent" id="heroH1Line3">FAÇA A DIFERENÇA.</span>
         </h1>
-        <p class="hero-desc">
+        <p class="hero-desc" id="heroDesc">
           Somos uma igreja que acredita no poder transformador de Jesus Cristo e na diferença que podemos fazer juntos em nossa comunidade.
         </p>
 
         <div class="hero-buttons">
-          <a href="#visitModal" class="btn btn-primary js-plan-visit">
-            <i class="fa-regular fa-calendar-check"></i> Planeje sua Visita
+          <a href="#visitModal" class="btn btn-primary js-plan-visit" id="heroBtn1">
+            <i class="fa-regular fa-calendar-check"></i> <span>Planeje sua Visita</span>
           </a>
-          <a href="#videoModal" class="btn btn-outline js-watch-video">
-            <i class="fa-solid fa-circle-play"></i> Assistir Vídeo de Boas-Vindas
+          <a href="#videoModal" class="btn btn-outline js-watch-video" id="heroBtn2">
+            <i class="fa-solid fa-circle-play"></i> <span>Assistir Vídeo de Boas-Vindas</span>
           </a>
         </div>
 
@@ -106,8 +100,8 @@
               <i class="fa-regular fa-heart"></i>
             </div>
             <div>
-              <div class="highlight-title">Adoração</div>
-              <div class="highlight-text">Exaltando a Deus juntos</div>
+              <div class="highlight-title" id="hl1Title">Adoração</div>
+              <div class="highlight-text" id="hl1Text">Exaltando a Deus juntos</div>
             </div>
           </div>
 
@@ -116,8 +110,8 @@
               <i class="fa-solid fa-book-open"></i>
             </div>
             <div>
-              <div class="highlight-title">Crescimento</div>
-              <div class="highlight-text">Crescendo na Fé</div>
+              <div class="highlight-title" id="hl2Title">Crescimento</div>
+              <div class="highlight-text" id="hl2Text">Crescendo na Fé</div>
             </div>
           </div>
 
@@ -126,8 +120,8 @@
               <i class="fa-solid fa-hands-holding-child"></i>
             </div>
             <div>
-              <div class="highlight-title">Serviço</div>
-              <div class="highlight-text">Servindo a nossa Comunidade</div>
+              <div class="highlight-title" id="hl3Title">Serviço</div>
+              <div class="highlight-text" id="hl3Text">Servindo a nossa Comunidade</div>
             </div>
           </div>
         </div>
@@ -142,25 +136,21 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?auto=format&fit=crop&w=1000&q=80" alt="Culto no Ministério Despertar">
+          <img src="https://images.unsplash.com/photo-1510590337019-5ef8d3d32116?auto=format&fit=crop&w=1000&q=80" alt="Culto no Ministério Despertar" id="aboutImage">
         </div>
 
         <div class="about-content-group">
-          <span class="eyebrow">SOBRE NÓS</span>
-          <h2 class="heading-h2">Um Lugar Para Pertencer</h2>
-          <p style="line-height: 1.7; color: var(--color-text-body);">
+          <span class="eyebrow" id="aboutEyebrow">SOBRE NÓS</span>
+          <h2 class="heading-h2" id="aboutHeading">Um Lugar Para Pertencer</h2>
+          <p style="line-height: 1.7; color: var(--color-text-body);" id="aboutDesc">
             No Ministério Despertar, você encontrará uma família acolhedora, ensinamentos práticos para a vida e oportunidades reais para crescer em sua fé e fazer a diferença.
           </p>
 
-          <ul class="about-checklist">
-            <li><i class="fa-solid fa-check"></i> Ensino Bíblico Relevante</li>
-            <li><i class="fa-solid fa-check"></i> Comunidade Acolhedora</li>
-            <li><i class="fa-solid fa-check"></i> Ministérios para Adultos, Jovens e Crianças</li>
-            <li><i class="fa-solid fa-check"></i> Oportunidades para Servir</li>
-            <li><i class="fa-solid fa-check"></i> Adoração Viva e Inspiradora</li>
+          <ul class="about-checklist" id="aboutChecklist">
+            <!-- Renderizado via JS -->
           </ul>
 
-          <a href="#ministries" class="btn btn-primary">
+          <a href="#ministries" class="btn btn-primary" id="aboutBtn">
             Conheça Mais Sobre Nós
           </a>
         </div>
@@ -174,70 +164,12 @@
   <section class="ministries-section" id="ministries">
     <div class="container">
       <div class="section-header-center">
-        <span class="eyebrow">NOSSOS MINISTÉRIOS</span>
-        <h2 class="heading-h2">Ministérios para Todas as Fases da Vida</h2>
+        <span class="eyebrow" id="ministriesEyebrow">NOSSOS MINISTÉRIOS</span>
+        <h2 class="heading-h2" id="ministriesHeading">Ministérios para Todas as Fases da Vida</h2>
       </div>
 
-      <div class="ministries-grid">
-        <!-- Kids -->
-        <div class="ministry-card">
-          <div class="ministry-card-icon">
-            <i class="fa-solid fa-child-reaching"></i>
-          </div>
-          <h3 class="ministry-card-title">Infantil (Kids)</h3>
-          <p class="ministry-card-text">Ambiente divertido, seguro e fundamentado na fé para as crianças.</p>
-          <a href="#" class="ministry-card-link">Saiba Mais <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
-        </div>
-
-        <!-- Youth -->
-        <div class="ministry-card">
-          <div class="ministry-card-icon">
-            <i class="fa-solid fa-cross"></i>
-          </div>
-          <h3 class="ministry-card-title">Jovens (Youth)</h3>
-          <p class="ministry-card-text">Ajudando estudantes a se conectarem, crescerem na fé e liderarem.</p>
-          <a href="#" class="ministry-card-link">Saiba Mais <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
-        </div>
-
-        <!-- Young Adults -->
-        <div class="ministry-card">
-          <div class="ministry-card-icon">
-            <i class="fa-solid fa-users"></i>
-          </div>
-          <h3 class="ministry-card-title">Jovens Adultos</h3>
-          <p class="ministry-card-text">Construindo comunidade e fortalecendo a fé juntos.</p>
-          <a href="#" class="ministry-card-link">Saiba Mais <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
-        </div>
-
-        <!-- Men -->
-        <div class="ministry-card">
-          <div class="ministry-card-icon">
-            <i class="fa-solid fa-hand-holding-heart"></i>
-          </div>
-          <h3 class="ministry-card-title">Homens de Valor</h3>
-          <p class="ministry-card-text">Equipando homens para liderarem com fé, sabedoria e integridade.</p>
-          <a href="#" class="ministry-card-link">Saiba Mais <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
-        </div>
-
-        <!-- Women -->
-        <div class="ministry-card">
-          <div class="ministry-card-icon">
-            <i class="fa-solid fa-spa"></i>
-          </div>
-          <h3 class="ministry-card-title">Mulheres de Fé</h3>
-          <p class="ministry-card-text">Incentivando mulheres a crescerem, conectarem-se e florescerem em Cristo.</p>
-          <a href="#" class="ministry-card-link">Saiba Mais <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
-        </div>
-
-        <!-- Outreach -->
-        <div class="ministry-card">
-          <div class="ministry-card-icon">
-            <i class="fa-solid fa-globe"></i>
-          </div>
-          <h3 class="ministry-card-title">Ação Social</h3>
-          <p class="ministry-card-text">Amando nossos vizinhos e gerando impacto em nossa comunidade.</p>
-          <a href="#" class="ministry-card-link">Saiba Mais <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
-        </div>
+      <div class="ministries-grid" id="ministriesGrid">
+        <!-- Renderizado dinamicamente via JS -->
       </div>
     </div>
   </section>
@@ -249,51 +181,11 @@
     <!-- Left Half: Events -->
     <div class="split-events" id="events">
       <div class="split-events-inner">
-        <span class="eyebrow">PRÓXIMOS EVENTOS</span>
-        <h2 class="heading-h2">Encontros e Cultos</h2>
+        <span class="eyebrow" id="eventsEyebrow">PRÓXIMOS EVENTOS</span>
+        <h2 class="heading-h2" id="eventsHeading">Encontros e Cultos</h2>
 
-        <div class="events-list">
-          <!-- Event 1 -->
-          <div class="event-item">
-            <div class="event-badge">
-              <span class="event-month">MAI</span>
-              <span class="event-day">19</span>
-            </div>
-            <div class="event-content">
-              <h4 class="event-title">Culto de Adoração e Celebração</h4>
-              <div class="event-datetime">19 de Maio de 2024 - 09h00 & 11h00</div>
-              <div class="event-text">Junte-se a nós para um tempo poderoso de adoração e Palavra.</div>
-            </div>
-            <a href="#" class="event-link-arrow"><i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-
-          <!-- Event 2 -->
-          <div class="event-item">
-            <div class="event-badge">
-              <span class="event-month">MAI</span>
-              <span class="event-day">24</span>
-            </div>
-            <div class="event-content">
-              <h4 class="event-title">Noite de Louvor & Conexão Jovem</h4>
-              <div class="event-datetime">24 de Maio de 2024 - 19h30</div>
-              <div class="event-text">Uma noite de comunhão, louvor e alegria para todos os estudantes.</div>
-            </div>
-            <a href="#" class="event-link-arrow"><i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-
-          <!-- Event 3 -->
-          <div class="event-item">
-            <div class="event-badge">
-              <span class="event-month">MAI</span>
-              <span class="event-day">30</span>
-            </div>
-            <div class="event-content">
-              <h4 class="event-title">Ação Social e Impacto Comunitário</h4>
-              <div class="event-datetime">30 de Maio de 2024 - 09h00</div>
-              <div class="event-text">Vamos servir nossa cidade juntos e fazer a diferença.</div>
-            </div>
-            <a href="#" class="event-link-arrow"><i class="fa-solid fa-arrow-right"></i></a>
-          </div>
+        <div class="events-list" id="eventsList">
+          <!-- Renderizado dinamicamente via JS -->
         </div>
 
         <a href="#" class="events-view-all">Ver Todos os Eventos <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i></a>
@@ -303,17 +195,17 @@
     <!-- Right Half: Give -->
     <div class="split-give" id="give">
       <div class="split-give-inner">
-        <span class="eyebrow" style="color: var(--color-accent);">OFERTA & GENEROSIDADE</span>
-        <h2 class="give-h2">Sua Generosidade Transforma Vidas</h2>
-        <p class="give-desc">
+        <span class="eyebrow" style="color: var(--color-accent);" id="giveEyebrow">OFERTA & GENEROSIDADE</span>
+        <h2 class="give-h2" id="giveHeading">Sua Generosidade Transforma Vidas</h2>
+        <p class="give-desc" id="giveDesc">
           Sua contribuição voluntária nos ajuda a continuar nossa missão de alcançar pessoas, formar discípulos e servir nossa comunidade.
         </p>
 
-        <a href="#" class="btn btn-accent">
+        <a href="#" class="btn btn-accent" id="giveBtn">
           <i class="fa-solid fa-heart"></i> Contribuir Online (PIX / Cartão)
         </a>
 
-        <div class="give-note">Muito obrigado por sua fidelidade e amor!</div>
+        <div class="give-note" id="giveNote">Muito obrigado por sua fidelidade e amor!</div>
       </div>
     </div>
   </section>
@@ -323,46 +215,8 @@
        ========================================== -->
   <section class="stats-section" id="stats">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-icon">
-            <i class="fa-solid fa-users"></i>
-          </div>
-          <div>
-            <div class="stat-value" data-target="1200">1.200+</div>
-            <div class="stat-label">Pessoas na Comunidade</div>
-          </div>
-        </div>
-
-        <div class="stat-box">
-          <div class="stat-icon">
-            <i class="fa-solid fa-church"></i>
-          </div>
-          <div>
-            <div class="stat-value" data-target="50">50+</div>
-            <div class="stat-label">Líderes de Ministério</div>
-          </div>
-        </div>
-
-        <div class="stat-box">
-          <div class="stat-icon">
-            <i class="fa-solid fa-globe"></i>
-          </div>
-          <div>
-            <div class="stat-value" data-target="25">25+</div>
-            <div class="stat-label">Parcerias Sociais</div>
-          </div>
-        </div>
-
-        <div class="stat-box">
-          <div class="stat-icon">
-            <i class="fa-solid fa-heart-pulse"></i>
-          </div>
-          <div>
-            <div class="stat-value" data-target="100">100+</div>
-            <div class="stat-label">Vidas Impactadas Semanalmente</div>
-          </div>
-        </div>
+      <div class="stats-grid" id="statsGrid">
+        <!-- Renderizado dinamicamente via JS -->
       </div>
     </div>
   </section>
@@ -373,61 +227,16 @@
   <section class="testimonials-section" id="testimonials">
     <div class="container">
       <div class="section-header-center">
-        <span class="eyebrow">O QUE DIZEM NOSSOS MEMBROS</span>
-        <h2 class="heading-h2">Pessoas Reais. Histórias Reais.</h2>
+        <span class="eyebrow" id="testimonialsEyebrow">O QUE DIZEM NOSSOS MEMBROS</span>
+        <h2 class="heading-h2" id="testimonialsHeading">Pessoas Reais. Histórias Reais.</h2>
       </div>
 
-      <div class="testimonials-grid">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card">
-          <i class="fa-solid fa-quote-left quote-mark"></i>
-          <p class="testimonial-quote">
-            "O Ministério Despertar se tornou verdadeiramente minha segunda família. O ensino é prático, relevante e transformador."
-          </p>
-          <div class="testimonial-author-group">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Sara Medeiros" class="testimonial-avatar">
-            <div>
-              <div class="author-name">Sara Medeiros</div>
-              <div class="author-location">São Paulo, SP</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card">
-          <i class="fa-solid fa-quote-left quote-mark"></i>
-          <p class="testimonial-quote">
-            "Um lugar incrível onde meus filhos amam ir e aprender sobre Jesus em um ambiente divertido e seguro."
-          </p>
-          <div class="testimonial-author-group">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Marcelo Torres" class="testimonial-avatar">
-            <div>
-              <div class="author-name">Marcelo Torres</div>
-              <div class="author-location">São Paulo, SP</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card">
-          <i class="fa-solid fa-quote-left quote-mark"></i>
-          <p class="testimonial-quote">
-            "Servir aqui me ajudou a crescer espiritualmente e levar minha fé para o próximo nível no meu dia a dia."
-          </p>
-          <div class="testimonial-author-group">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Emília Rocha" class="testimonial-avatar">
-            <div>
-              <div class="author-name">Emília Rocha</div>
-              <div class="author-location">São Paulo, SP</div>
-            </div>
-          </div>
-        </div>
+      <div class="testimonials-grid" id="testimonialsGrid">
+        <!-- Renderizado dinamicamente via JS -->
       </div>
 
-      <div class="carousel-dots">
-        <span class="carousel-dot active"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
+      <div class="carousel-dots" id="carouselDots">
+        <!-- Renderizado dinamicamente via JS -->
       </div>
     </div>
   </section>
@@ -443,12 +252,12 @@
             <i class="fa-solid fa-church"></i>
           </div>
           <div>
-            <h3 class="cta-banner-heading">Adoraríamos conhecer você!</h3>
-            <p class="cta-banner-text">Junte-se a nós neste domingo e viva essa experiência em um lugar onde você pertence.</p>
+            <h3 class="cta-banner-heading" id="ctaBannerHeading">Adoraríamos conhecer você!</h3>
+            <p class="cta-banner-text" id="ctaBannerText">Junte-se a nós neste domingo e viva essa experiência em um lugar onde você pertence.</p>
           </div>
         </div>
 
-        <a href="#visitModal" class="btn btn-primary js-plan-visit">
+        <a href="#visitModal" class="btn btn-primary js-plan-visit" id="ctaBannerBtn">
           <i class="fa-regular fa-calendar-check"></i> Planeje sua Visita
         </a>
       </div>
@@ -480,26 +289,16 @@
         <!-- Quick Links -->
         <div>
           <h4 class="footer-col-title">LINKS RÁPIDOS</h4>
-          <ul class="footer-nav-list">
-            <li><a href="#hero">Início</a></li>
-            <li><a href="#about">Sobre Nós</a></li>
-            <li><a href="#ministries">Ministérios</a></li>
-            <li><a href="#events">Eventos</a></li>
-            <li><a href="#sermons">Pregações</a></li>
-            <li><a href="#footer">Contato</a></li>
+          <ul class="footer-nav-list" id="footerQuickLinks">
+            <!-- Renderizado dinamicamente -->
           </ul>
         </div>
 
         <!-- Ministries -->
         <div>
           <h4 class="footer-col-title">MINISTÉRIOS</h4>
-          <ul class="footer-nav-list">
-            <li><a href="#">Infantil (Kids)</a></li>
-            <li><a href="#">Jovens (Youth)</a></li>
-            <li><a href="#">Jovens Adultos</a></li>
-            <li><a href="#">Homens de Valor</a></li>
-            <li><a href="#">Mulheres de Fé</a></li>
-            <li><a href="#">Ação Social</a></li>
+          <ul class="footer-nav-list" id="footerMinistriesList">
+            <!-- Renderizado dinamicamente -->
           </ul>
         </div>
 
@@ -582,12 +381,213 @@
       <button class="modal-close-btn js-modal-close" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
       <h3 style="font-family: var(--font-heading); font-size: 22px; color: var(--color-primary-dark); margin-bottom: 16px;">Vídeo de Boas-Vindas</h3>
       <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-sm);">
-        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=0" title="Vídeo de Boas-Vindas" allowfullscreen></iframe>
+        <iframe id="heroVideoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=0" title="Vídeo de Boas-Vindas" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 
-  <!-- JavaScript -->
+  <!-- ==========================================
+       12. CUSTOMIZATION CONTROL PANEL WIDGET
+       ========================================== -->
+  <button class="customizer-trigger-btn" id="customizerTriggerBtn">
+    <i class="fa-solid fa-wand-magic-sparkles"></i> <span>🎨 Personalizar Site</span>
+  </button>
+
+  <div class="customizer-overlay-bg" id="customizerOverlayBg"></div>
+
+  <div class="customizer-drawer" id="customizerDrawer">
+    <div class="customizer-header">
+      <div>
+        <h3 class="customizer-title"><i class="fa-solid fa-sliders"></i> Painel de Personalização</h3>
+        <p style="font-size: 11px; opacity: 0.8;">Altere conteúdos, cores e layouts em tempo real</p>
+      </div>
+      <button class="customizer-close-btn" id="closeCustomizerBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="customizer-tabs" id="customizerTabs">
+      <button class="customizer-tab-btn active" data-tab="tab-branding">🎨 Cores & Logo</button>
+      <button class="customizer-tab-btn" data-tab="tab-hero">🚀 Hero</button>
+      <button class="customizer-tab-btn" data-tab="tab-about">📖 Sobre Nós</button>
+      <button class="customizer-tab-btn" data-tab="tab-ministries">⛪ Ministérios</button>
+      <button class="customizer-tab-btn" data-tab="tab-events">📅 Eventos</button>
+      <button class="customizer-tab-btn" data-tab="tab-stats">📊 Métricas & Depoimentos</button>
+      <button class="customizer-tab-btn" data-tab="tab-menu">🔗 Menu & Páginas</button>
+      <button class="customizer-tab-btn" data-tab="tab-save">💾 Salvar / Exportar</button>
+    </div>
+
+    <div class="customizer-body">
+      <!-- Tab 1: Branding -->
+      <div class="customizer-tab-content active" id="tab-branding">
+        <div class="form-field">
+          <label>Tamanho da Logo (<span id="logoSizeVal">56</span>px)</label>
+          <input type="range" id="inputLogoSize" min="30" max="120" value="56" style="width: 100%;">
+        </div>
+
+        <h4 style="font-size: 13px; font-weight: 700; margin: 16px 0 8px 0; color: var(--color-primary-dark);">Personalização de Cores</h4>
+
+        <div class="color-picker-row">
+          <span>Fundo do Menu (Navbar)</span>
+          <input type="color" id="inputNavbarBg" value="#FFFFFF">
+        </div>
+
+        <div class="color-picker-row">
+          <span>Cor dos Links do Menu</span>
+          <input type="color" id="inputNavLinkColor" value="#1B2A41">
+        </div>
+
+        <div class="color-picker-row">
+          <span>Fundo do Botão do Menu</span>
+          <input type="color" id="inputNavBtnBg" value="#D9A32B">
+        </div>
+
+        <div class="color-picker-row">
+          <span>Texto do Botão do Menu</span>
+          <input type="color" id="inputNavBtnTextColor" value="#0C1E3A">
+        </div>
+      </div>
+
+      <!-- Tab 2: Hero -->
+      <div class="customizer-tab-content" id="tab-hero">
+        <div class="form-field">
+          <label>Imagem de Fundo do Hero (URL)</label>
+          <input type="url" id="inputHeroBg" placeholder="https://...">
+        </div>
+
+        <div class="form-field">
+          <label>Vídeo de Boas-Vindas (YouTube Embed URL)</label>
+          <input type="url" id="inputHeroVideo" placeholder="https://www.youtube-nocookie.com/embed/...">
+        </div>
+
+        <div class="form-field">
+          <label>Frase de Entrada (Eyebrow)</label>
+          <input type="text" id="inputHeroEyebrow">
+        </div>
+
+        <div class="form-field">
+          <label>Título - Linha 1</label>
+          <input type="text" id="inputHeroH1Line1">
+        </div>
+
+        <div class="form-field">
+          <label>Título - Linha 2</label>
+          <input type="text" id="inputHeroH1Line2">
+        </div>
+
+        <div class="form-field">
+          <label>Título - Linha 3 (Destaque Dourado)</label>
+          <input type="text" id="inputHeroH1Line3">
+        </div>
+
+        <div class="form-field">
+          <label>Descrição do Hero</label>
+          <textarea id="inputHeroDesc" rows="3"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label>Texto Botão 1 (Agendar Visita)</label>
+          <input type="text" id="inputHeroBtn1">
+        </div>
+
+        <div class="form-field">
+          <label>Texto Botão 2 (Assistir Vídeo)</label>
+          <input type="text" id="inputHeroBtn2">
+        </div>
+      </div>
+
+      <!-- Tab 3: About -->
+      <div class="customizer-tab-content" id="tab-about">
+        <div class="form-field">
+          <label>Imagem da Seção Sobre Nós (URL)</label>
+          <input type="url" id="inputAboutImage">
+        </div>
+
+        <div class="form-field">
+          <label>Subtítulo (Eyebrow)</label>
+          <input type="text" id="inputAboutEyebrow">
+        </div>
+
+        <div class="form-field">
+          <label>Título da Seção</label>
+          <input type="text" id="inputAboutHeading">
+        </div>
+
+        <div class="form-field">
+          <label>Descrição</label>
+          <textarea id="inputAboutDesc" rows="4"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label>Itens da Lista (Um por linha)</label>
+          <textarea id="inputAboutChecklist" rows="5"></textarea>
+        </div>
+      </div>
+
+      <!-- Tab 4: Ministries -->
+      <div class="customizer-tab-content" id="tab-ministries">
+        <div id="ministriesCrudContainer"></div>
+        <button class="btn btn-primary" id="addMinistryBtn" style="width: 100%; padding: 8px; font-size: 12px; margin-top: 10px;">
+          <i class="fa-solid fa-plus"></i> Adicionar Novo Ministério
+        </button>
+      </div>
+
+      <!-- Tab 5: Events -->
+      <div class="customizer-tab-content" id="tab-events">
+        <div id="eventsCrudContainer"></div>
+        <button class="btn btn-primary" id="addEventBtn" style="width: 100%; padding: 8px; font-size: 12px; margin-top: 10px;">
+          <i class="fa-solid fa-plus"></i> Agendar Novo Evento
+        </button>
+      </div>
+
+      <!-- Tab 6: Stats & Testimonials -->
+      <div class="customizer-tab-content" id="tab-stats">
+        <h4 style="font-size: 13px; font-weight: 700; margin-bottom: 12px; color: var(--color-primary-dark);">Faixa de Estatísticas</h4>
+        <div id="statsCrudContainer"></div>
+
+        <h4 style="font-size: 13px; font-weight: 700; margin: 20px 0 12px 0; color: var(--color-primary-dark);">Depoimentos</h4>
+        <div id="testimonialsCrudContainer"></div>
+      </div>
+
+      <!-- Tab 7: Menu & Pages -->
+      <div class="customizer-tab-content" id="tab-menu">
+        <p style="font-size: 12px; color: var(--color-text-body); margin-bottom: 12px;">Gerencie os links e adicione novas páginas no menu principal de navegação.</p>
+        <div id="menuCrudContainer"></div>
+        <button class="btn btn-primary" id="addMenuItemBtn" style="width: 100%; padding: 8px; font-size: 12px; margin-top: 10px;">
+          <i class="fa-solid fa-plus"></i> Adicionar Item no Menu
+        </button>
+      </div>
+
+      <!-- Tab 8: Save & Export -->
+      <div class="customizer-tab-content" id="tab-save">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <button class="btn btn-primary" id="saveLocalStorageBtn">
+            <i class="fa-solid fa-floppy-disk"></i> Salvar no Navegador
+          </button>
+          <button class="btn btn-accent" id="exportConfigBtn">
+            <i class="fa-solid fa-download"></i> Exportar Configuração (JSON)
+          </button>
+          
+          <label class="btn btn-outline" style="cursor: pointer;">
+            <i class="fa-solid fa-upload"></i> Importar Configuração (JSON)
+            <input type="file" id="importConfigFile" accept=".json" style="display: none;">
+          </label>
+
+          <button class="btn btn-outline" id="resetConfigBtn" style="border-color: #D32F2F; color: #D32F2F; margin-top: 20px;">
+            <i class="fa-solid fa-rotate-left"></i> Restaurar Padrão de Fábrica
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="customizer-footer">
+      <button class="btn btn-primary" id="applyAndSaveBtn" style="flex: 1;">
+        <i class="fa-solid fa-check"></i> Aplicar & Salvar
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

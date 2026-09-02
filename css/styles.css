@@ -17,6 +17,13 @@
   --color-border: #E5E2DA;
   --color-success: #D9A32B;
 
+  /* Customizer Override Variables */
+  --custom-navbar-bg: #FFFFFF;
+  --custom-nav-link-color: #1B2A41;
+  --custom-nav-btn-bg: #D9A32B;
+  --custom-nav-btn-text: #0C1E3A;
+  --custom-logo-height: 56px;
+
   /* Radius from JSON designTokens */
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -142,12 +149,12 @@ button {
 }
 
 .btn-accent {
-  background-color: var(--color-accent);
-  color: var(--color-primary-dark);
+  background-color: var(--custom-nav-btn-bg);
+  color: var(--custom-nav-btn-text);
 }
 
 .btn-accent:hover {
-  background-color: var(--color-accent-soft);
+  filter: brightness(1.1);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(217, 163, 43, 0.3);
 }
@@ -166,7 +173,7 @@ button {
 
 /* Brand Logo Component */
 .brand-logo-img {
-  height: 56px;
+  height: var(--custom-logo-height);
   width: auto;
   object-fit: contain;
   transition: var(--transition);
@@ -182,7 +189,7 @@ button {
 }
 
 .footer-logo-box img {
-  height: 48px;
+  height: calc(var(--custom-logo-height) * 0.85);
   width: auto;
 }
 
@@ -240,12 +247,13 @@ button {
    ========================================================================== */
 
 .navbar {
-  background-color: var(--color-bg);
+  background-color: var(--custom-navbar-bg);
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid var(--color-border);
+  transition: var(--transition);
 }
 
 .navbar .container {
@@ -265,7 +273,7 @@ button {
 .nav-menu-link {
   font-weight: 600;
   font-size: 14px;
-  color: var(--color-text-dark);
+  color: var(--custom-nav-link-color);
   padding: 8px 0;
   position: relative;
 }
@@ -302,6 +310,7 @@ button {
   display: flex;
   align-items: center;
   padding: 64px 0;
+  transition: var(--transition);
 }
 
 .hero-content {
@@ -1015,7 +1024,210 @@ button {
 }
 
 /* ==========================================================================
-   12. RESPONSIVE LAYOUT
+   12. CUSTOMIZER PANEL WIDGET
+   ========================================================================== */
+
+.customizer-trigger-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--color-primary-dark);
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgba(12, 30, 58, 0.3);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+}
+
+.customizer-trigger-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.customizer-drawer {
+  position: fixed;
+  top: 0;
+  right: -440px;
+  width: 440px;
+  height: 100vh;
+  background-color: #FFFFFF;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.2);
+  z-index: 3010;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.customizer-drawer.open {
+  right: 0;
+}
+
+.customizer-overlay-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(12, 30, 58, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 3005;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.customizer-overlay-bg.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.customizer-header {
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customizer-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: var(--color-accent);
+}
+
+.customizer-close-btn {
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+.customizer-tabs {
+  display: flex;
+  background-color: #F6F4EF;
+  border-bottom: 1px solid var(--color-border);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.customizer-tab-btn {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: var(--transition);
+}
+
+.customizer-tab-btn.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  background-color: #FFFFFF;
+}
+
+.customizer-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.customizer-tab-content {
+  display: none;
+}
+
+.customizer-tab-content.active {
+  display: block;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--color-primary-dark);
+  margin-bottom: 6px;
+}
+
+.form-field input[type="text"],
+.form-field input[type="url"],
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 13px;
+  transition: var(--transition);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(217, 163, 43, 0.15);
+}
+
+.color-picker-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.color-picker-row span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.color-picker-row input[type="color"] {
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.crud-card-item {
+  background: #F6F4EF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.crud-remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #D32F2F;
+  font-size: 14px;
+}
+
+.customizer-footer {
+  padding: 16px 24px;
+  background: #FAF8F5;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   13. RESPONSIVE LAYOUT
    ========================================================================== */
 
 @media (max-width: 1024px) {
@@ -1071,5 +1283,9 @@ button {
     flex-direction: column;
     gap: 12px;
     text-align: center;
+  }
+  .customizer-drawer {
+    width: 100vw;
+    right: -100vw;
   }
 }
