@@ -1024,10 +1024,11 @@ button {
 }
 
 /* ==========================================================================
-   12. CUSTOMIZER PANEL WIDGET
+   12. CUSTOMIZER PANEL WIDGET (PROTECTED - HIDDEN BY DEFAULT)
    ========================================================================== */
 
 .customizer-trigger-btn {
+  display: none; /* Hidden from public visitors */
   position: fixed;
   bottom: 24px;
   right: 24px;
@@ -1040,10 +1041,13 @@ button {
   font-size: 14px;
   box-shadow: 0 8px 24px rgba(12, 30, 58, 0.3);
   z-index: 3000;
-  display: flex;
   align-items: center;
   gap: 10px;
   transition: var(--transition);
+}
+
+.customizer-trigger-btn.visible {
+  display: inline-flex;
 }
 
 .customizer-trigger-btn:hover {
@@ -1160,6 +1164,7 @@ button {
 }
 
 .form-field input[type="text"],
+.form-field input[type="password"],
 .form-field input[type="url"],
 .form-field textarea,
 .form-field select {

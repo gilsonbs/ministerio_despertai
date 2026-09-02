@@ -1,11 +1,13 @@
 /* ==========================================================================
    MINISTÉRIO DESPERTAR - FULL CUSTOMIZATION & INTERACTIVE ENGINE
-   Real-Time DOM Updates, LocalStorage Persistence, Import/Export
+   Real-Time DOM Updates, LocalStorage Persistence, Protected Admin Access
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. State Management
   const STORAGE_KEY = 'MINISTERIO_DESPERTAI_CONFIG';
+  const AUTH_KEY = 'DESPERTAI_ADMIN_AUTH';
+
   let currentConfig = loadSavedConfig();
 
   function loadSavedConfig() {
@@ -226,15 +228,78 @@ document.addEventListener('DOMContentLoaded', () => {
     })[m]);
   }
 
-  // 3. Customizer Drawer & Tabs Logic
+  // 3. Protected Admin Security & Authentication
   const triggerBtn = document.getElementById('customizerTriggerBtn');
   const closeBtn = document.getElementById('closeCustomizerBtn');
   const drawer = document.getElementById('customizerDrawer');
   const overlayBg = document.getElementById('customizerOverlayBg');
-  const tabBtns = document.querySelectorAll('.customizer-tab-btn');
-  const tabContents = document.querySelectorAll('.customizer-tab-content');
+  const adminLoginModal = document.getElementById('adminLoginModal');
+  const adminLoginForm = document.getElementById('adminLoginForm');
+  const adminPasswordInput = document.getElementById('adminPasswordInput');
+
+  function isAuthenticated() {
+    return sessionStorage.getItem(AUTH_KEY) === 'true';
+  }
+
+  function revealAdminButton() {
+    if (triggerBtn) triggerBtn.classList.add('visible');
+  }
+
+  function checkAdminAccess() {
+    // Reveal if already authenticated or URL contains secret param ?admin=...
+    if (isAuthenticated()) {
+      revealAdminButton();
+      return true;
+    }
+
+    if (window.location.search.includes('admin')) {
+      requestAdminLogin();
+      return false;
+    }
+
+    return false;
+  }
+
+  function requestAdminLogin() {
+    if (adminLoginModal) adminLoginModal.classList.add('active');
+  }
+
+  if (adminLoginForm) {
+    adminLoginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const entered = adminPasswordInput.value.trim();
+      const correctPass = currentConfig.adminPassword || 'despertar123';
+
+      if (entered === correctPass) {
+        sessionStorage.setItem(AUTH_KEY, 'true');
+        if (adminLoginModal) adminLoginModal.classList.remove('active');
+        adminPasswordInput.value = '';
+        revealAdminButton();
+        openDrawer();
+      } else {
+        alert('Senha de administrador incorreta!');
+      }
+    });
+  }
+
+  // Secret keyboard shortcut (Ctrl + Shift + A) to request admin access
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+      e.preventDefault();
+      if (isAuthenticated()) {
+        revealAdminButton();
+        openDrawer();
+      } else {
+        requestAdminLogin();
+      }
+    }
+  });
 
   function openDrawer() {
+    if (!isAuthenticated()) {
+      requestAdminLogin();
+      return;
+    }
     drawer.classList.add('open');
     overlayBg.classList.add('active');
     populateFormInputs(currentConfig);
@@ -248,6 +313,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (triggerBtn) triggerBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   if (overlayBg) overlayBg.addEventListener('click', closeDrawer);
+
+  const tabBtns = document.querySelectorAll('.customizer-tab-btn');
+  const tabContents = document.querySelectorAll('.customizer-tab-content');
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -288,6 +356,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setValue('inputAboutDesc', config.about.description);
     setValue('inputAboutChecklist', config.about.checklist ? config.about.checklist.join('\n') : '');
 
+    // Admin Password
+    setValue('inputAdminPassword', '');
+
     // Render CRUD lists
     renderMinistriesCrud(config.ministries.items);
     renderEventsCrud(config.events.items);
@@ -301,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (el && val !== undefined) el.value = val;
   }
 
-  // 5. Live Form Listeners (Real-Time Update)
+  // 5. Live Form Listeners
   document.getElementById('inputLogoSize')?.addEventListener('input', (e) => {
     currentConfig.branding.logoSize = e.target.value;
     setElementText('logoSizeVal', e.target.value);
@@ -552,15 +623,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Save, Export, Import & Reset Actions
   document.getElementById('saveLocalStorageBtn')?.addEventListener('click', () => {
+    checkPasswordChange();
     saveConfig(currentConfig);
     alert('Configurações salvas com sucesso no navegador!');
   });
 
   document.getElementById('applyAndSaveBtn')?.addEventListener('click', () => {
+    checkPasswordChange();
     saveConfig(currentConfig);
     alert('Alterações aplicadas e salvas com sucesso!');
     closeDrawer();
   });
+
+  function checkPasswordChange() {
+    const newPass = document.getElementById('inputAdminPassword')?.value.trim();
+    if (newPass) {
+      currentConfig.adminPassword = newPass;
+      alert('Senha do administrador alterada com sucesso!');
+      document.getElementById('inputAdminPassword').value = '';
+    }
+  }
 
   document.getElementById('exportConfigBtn')?.addEventListener('click', () => {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(currentConfig, null, 2));
@@ -641,6 +723,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       if (visitModal) visitModal.classList.remove('active');
       if (videoModal) videoModal.classList.remove('active');
+      if (adminLoginModal) adminLoginModal.classList.remove('active');
     });
   });
 
@@ -678,6 +761,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initial Render on Page Load
+  // Initial Render & Admin Check on Page Load
   applyConfigToSite(currentConfig);
+  checkAdminAccess();
 });

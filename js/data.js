@@ -3,6 +3,7 @@
    ========================================================================== */
 
 const DEFAULT_CONFIG = {
+  adminPassword: 'despertar123', // Senha padrão de administração
   branding: {
     logoSize: 56,
     navbarBg: '#FFFFFF',

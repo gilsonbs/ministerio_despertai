@@ -386,6 +386,29 @@
     </div>
   </div>
 
+  <!-- Modal Admin Login (Protegido por Senha) -->
+  <div class="modal-overlay" id="adminLoginModal">
+    <div class="modal-card" style="max-width: 420px;">
+      <button class="modal-close-btn js-modal-close" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+      <div style="text-align: center; margin-bottom: 20px;">
+        <i class="fa-solid fa-lock" style="font-size: 32px; color: var(--color-accent);"></i>
+        <h3 style="font-family: var(--font-heading); font-size: 22px; color: var(--color-primary-dark); margin-top: 10px;">Acesso Administrativo</h3>
+        <p style="font-size: 13px; color: var(--color-text-body);">Digite a senha do administrador para acessar o Painel de Personalização.</p>
+      </div>
+
+      <form id="adminLoginForm">
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; color: var(--color-primary-dark);">Senha de Administrador</label>
+          <input type="password" id="adminPasswordInput" class="form-control" style="width: 100%; padding: 12px; border: 1px solid var(--color-border); border-radius: var(--radius-sm);" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          <i class="fa-solid fa-key"></i> Entrar no Painel
+        </button>
+      </form>
+    </div>
+  </div>
+
   <!-- ==========================================
        12. CUSTOMIZATION CONTROL PANEL WIDGET
        ========================================== -->
@@ -572,7 +595,12 @@
             <input type="file" id="importConfigFile" accept=".json" style="display: none;">
           </label>
 
-          <button class="btn btn-outline" id="resetConfigBtn" style="border-color: #D32F2F; color: #D32F2F; margin-top: 20px;">
+          <div class="form-field" style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--color-border);">
+            <label>Alterar Senha do Administrador</label>
+            <input type="password" id="inputAdminPassword" placeholder="Nova senha do admin">
+          </div>
+
+          <button class="btn btn-outline" id="resetConfigBtn" style="border-color: #D32F2F; color: #D32F2F; margin-top: 10px;">
             <i class="fa-solid fa-rotate-left"></i> Restaurar Padrão de Fábrica
           </button>
         </div>
